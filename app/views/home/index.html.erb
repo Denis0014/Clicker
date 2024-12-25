@@ -1,0 +1,16 @@
+<h1>
+  Home
+</h1>
+
+<div>
+  Logged as <%= @user %>
+</div>
+
+<div>
+  <%= link_to "Leaderboards", leaderboards_path %>
+</div>
+
+<div>
+  <%= button_to 'Click', "/home/button_click", method: :get %>
+  <%= @score %>
+</div>

@@ -1,16 +1,9 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Leaderboards" %>
 
 <h1>Leaderboards</h1>
 
 <div id="leaderboards">
-  <% @leaderboards.each do |leaderboard| %>
-    <%= render leaderboard %>
-    <p>
-      <%= link_to "Show this leaderboard", leaderboard %>
-    </p>
+  <% @users.each do |user| %>
+    <%= user.email_address %> <%= user.score %>
   <% end %>
 </div>
-
-<%= link_to "New leaderboard", new_leaderboard_path %>
