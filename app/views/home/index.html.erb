@@ -1,20 +1,28 @@
-<h1>
-  Home
-</h1>
+<div class="header">
+  <h1>
+    Home
+  </h1>
 
-<div>
-  Logged as <%= @user %>
+  <div>
+    Logged as <%= @user %>
+    <%= link_to "Leaderboards", leaderboards_path %>
+  </div>
 </div>
 
-<div>
-  <%= link_to "Leaderboards", leaderboards_path %>
-</div>
-
-<div>
-  <center>
+<div class="game">
+    <div class="score"> <%= @score %> </div>
     <%= button_to 'Click', "/home/button_click", method: :get %>
-    <%= @score %>
-  </center>
+</div>
+
+<div class="footer">
+  <% cost = User.upgrade_cost(@upgrade) %>
+  <% if (cost > @score) %>
+    <%= button_to 'Buy upgrade', nil, :disabled => true %>
+  <% else %>
+    <%= button_to 'Buy upgrade', "/home/upgrade1", method: :get %>
+  <% end %>
+  Increases click power (costs <%= cost %>)<br>
+  Current click power: <%= @upgrade %>
 </div>
 
 <div>

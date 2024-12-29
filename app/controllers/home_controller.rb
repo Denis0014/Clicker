@@ -18,6 +18,7 @@ class HomeController < ApplicationController
   def button_click
     @cur = Current.user
     @cur.score = @cur.score + @cur.upgrade
+    @cur.score = @cur.score + @cur.upgrade
     @score = @cur.score
     @cur.save
     redirect_to root_path
@@ -25,17 +26,13 @@ class HomeController < ApplicationController
 
   def upgrade1
     @cur = Current.user
-    if @cur.score >= upgrade_cost(@cur.upgrade)
-      @cur.score = @cur.score - upgrade_cost(@cur.upgrade)
+    if @cur.score >= User.upgrade_cost(@cur.upgrade)
+      @cur.score = @cur.score - User.upgrade_cost(@cur.upgrade)
       @score = @cur.score
       @cur.upgrade = @cur.upgrade + 1
       @upgrade = @cur.upgrade
       @cur.save
     end
     redirect_to root_path
-  end
-
-  def upgrade_cost(upgrade)
-    50*upgrade
   end
 end

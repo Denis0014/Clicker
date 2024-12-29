@@ -1,9 +1,24 @@
 <% content_for :title, "Leaderboards" %>
 
-<h1>Leaderboards</h1>
+<div class="header">
+  <h1>Leaderboards</h1>
+  <div>
+    Logged as <%= @user %>
+    <%= link_to "🠔 Back", root_path %>
+    </div>
+</div>
 
 <div id="leaderboards">
-  <% @users.each do |user| %>
-    <%= user.email_address %> <%= user.score %>
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Score</th>
+    </tr>
+  <% @users.sort_by(&:score).reverse.each do |user| %>
+  <tr>
+    <th><%= user.email_address %></th>
+    <th><%= user.score %></th>
+  </tr>
   <% end %>
+  </table>
 </div>
