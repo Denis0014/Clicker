@@ -11,6 +11,14 @@
 </div>
 
 <div>
-  <%= button_to 'Click', "/home/button_click", method: :get %>
-  <%= @score %>
+  <center>
+    <%= button_to 'Click', "/home/button_click", method: :get %>
+    <%= @score %>
+  </center>
+</div>
+
+<div>
+  <%= button_to 'Buy upgrade', "/home/upgrade1", method: :get %>
+  Increases click power (costs <%= 50 * @upgrade%>)
+  Current click power: <%= @upgrade %>
 </div>

@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
   get "home/button_click" => "home#button_click"
+  get "home/upgrade1" => "home#upgrade1"
 end
